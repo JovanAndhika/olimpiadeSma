@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h1>Title</h1>
+<div class="d-flex justify-content-center">
+    <h1>Title</h1>
+</div>
 
 @include('homepagePartials.aboutus')
 @include('homepagePartials.timeline')

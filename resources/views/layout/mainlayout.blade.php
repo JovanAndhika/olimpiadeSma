@@ -19,17 +19,9 @@
 <body>
 
     @include('commonPartials.navbar')
-
-    <div class="container">
-        @yield('content')
-    </div>
-
-    <style>
-        *{
-            margin: 0 0;
-            padding: 0 0;
-        }
-    </style>
+    
+    @yield('content')
+    
 
 </body>
 

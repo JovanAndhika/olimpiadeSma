@@ -1,89 +1,41 @@
-<div class="c">
-    <input type="checkbox" id="faq-1">
-    <h1><label for="faq-1">What Is This ?</label></h1>
-    <div class="p">
-        <p>This a very very simple accordion.</p>
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+        <h3>Faq</h3>
     </div>
-</div>
-<div class="c">
-    <input type="checkbox" id="faq-2">
-    <h1><label for="faq-2">With Pure Css ?</label></h1>
-    <div class="p">
-        <p>Yes with pure CSS and HTML.</p>
-    </div>
-</div>
-<div class="c">
-    <input type="checkbox" id="faq-3">
-    <h1><label for="faq-3">Where did you get inpiration ?</label></h1>
-    <div class="p">
-        <p>I was inpired by an article on css-tricks. <a href="https://css-tricks.com/the-checkbox-hack/">link to article</a>
-        </p>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Accordion Item #1
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Accordion Item #2
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Accordion Item #3
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:400,400i,700");
 
-    div.c {
-        position: relative;
-        margin: 2em;
-    }
-
-    input {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        visibility: 0;
-    }
-
-    h1 {
-        background: steelblue;
-        color: white;
-        padding: 1em;
-        position: relative;
-    }
-
-    label::before {
-        content: "";
-        display: inline-block;
-        border: 15px solid transparent;
-        border-left: 20px solid white;
-    }
-
-    label {
-        cursor: pointer;
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    div.p {
-        max-height: 0px;
-        overflow: hidden;
-        transition: max-height 0.5s;
-        background-color: white;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    div.p p {
-        padding: 2em;
-    }
-
-    input:checked~h1 label::before {
-        border-left: 15px solid transparent;
-        border-top: 20px solid white;
-        margin-top: 12px;
-        margin-right: 10px;
-    }
-
-    input:checked~h1~div.p {
-        max-height: 100px;
-    }
-
-    a {
-        color: steelblue;
-    }
 </style>
