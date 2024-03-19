@@ -9,13 +9,13 @@
         <div class="col card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-                <p class="card-text">Panduan pendafataran</p>
+                <p class="card-text">Panduan Hadiah</p>
             </div>
         </div>
         <div class="col card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-                <p class="card-text">Guide untuk lomba</p>
+                <p class="card-text">Guide untuk hadiah</p>
             </div>
         </div>
     </div>

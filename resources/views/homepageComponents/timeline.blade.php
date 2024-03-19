@@ -1,4 +1,5 @@
 <div class="container MainTimeline">
+
     <h3>Timeline</h3>
 
     <div class="vl">
@@ -10,7 +11,6 @@
                     <div class="image-container">
                         <img class="image" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
                     </div>
-                    <div class="top"></div>
                     <span style="padding: 0 0 0 5%;">Pendaftaran peserta dimulai pada babak ini</span>
                 </div>
             </div>
@@ -21,9 +21,8 @@
                 <h2>18 dec 2023</h2>
                 <div class="kerstbal-container d-flex justify-content-center">
                     <div class="image-container">
-                        <img class="image" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
+                        <img class="image image-inherit" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
                     </div>
-                    <div class="top"></div>
                     <span style="padding: 0 0 0 5%;">Babak eliminasi pertama</span>
                 </div>
             </div>
@@ -34,9 +33,8 @@
                 <h2>18 dec 2023</h2>
                 <div class="kerstbal-container d-flex justify-content-center">
                     <div class="image-container">
-                        <img class="image" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
+                        <img class="image image-inherit" src="{{asset('storage/gambar_asset/Pendaftaran.jpg')}}">
                     </div>
-                    <div class="top"></div>
                     <span style="padding: 0 0 0 5%;">Babak eliminasi pertama</span>
                 </div>
             </div>
@@ -46,32 +44,78 @@
 </div>
 
 <style>
-    .image{
-        max-width: 100px;
-        max-height: 100px;
+    @media screen and (max-width: 1600px) {
+        .MainTimeline{
+            overflow-x: hidden;
+        }
+
+        .vl {
+            position: relative;
+            border-left: 6px solid green;
+            height: 600px;
+            left: 50%;
+        }
+
+        .image{
+            height: 100px;
+            width: 100px;
+        }
+
+        .box {
+            margin: 0;
+            width: 300px;
+            height: 180px;
+            background-color: burlywood;
+            border-radius: 10px;
+        }
+
+        .left{
+            position: relative;
+            left: -30%;
+        }
+
+        .right{
+            position: relative;
+            left: 8%;
+        }
+
     }
 
 
     /* ukuran smartphone */
     @media screen and (max-width: 600px) {
-    .vl {
-        border-left: 6px solid green;
-        height: 500px;
-    }
+        .vl {
+            position: static;
+            left: 0%;
+            border-left: 6px solid green;
+            height: 680px;
+        }
 
-    .box{
-        margin: 5% 0 16% 5%;
-        max-width: 240px;
-        max-height: 500px;
-        background-color: burlywood;
-        border-radius: 10px;
-    }
+        .box {
+            margin: 5% 0 16% 5%;
+            max-width: 240px;
+            max-height: 500px;
+            background-color: burlywood;
+            border-radius: 10px;
+        }
 
-    .image{
-        max-width: 100px;
-        max-height: 100px;
+        .left{
+            position: static;
+        }
+
+        .right{
+            position: static;
+        }
+
+        .image {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .image-inherit {
+            margin: 0;
+        }
     }
-}
 </style>
 
 <script>
