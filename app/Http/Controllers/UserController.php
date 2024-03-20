@@ -33,15 +33,17 @@ class UserController extends Controller
             'namaKetiga' => 'required|string',
             'jenisKonsumsi' => 'required|string|in:normal,vege,vegan',
             'alergi' => 'required|string',
-            'buktiTransaksi' => 'required|mimes:png,jpg',
+            'buktiTransaksi' => 'image|file|max:10000',
         ]);
 
         $validatedData['passPeserta'] = Hash::make($validatedData['passPeserta']);
+        if($request->file('buktiTransaksi')){
+            $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
+        }
         User::create($validatedData);
         
-        
         // Kembalikan respons ke halaman yang sesuai
-        return response()->json(['message' => 'Data berhasil disimpan'], 200);
+        return redirect("/")->with('registrationSuccess', 'Registration Berhasil!');
 
     }
 }

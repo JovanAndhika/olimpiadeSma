@@ -7,7 +7,7 @@
 
     <div class="form-content">
 
-        <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storeRegistration') }}" enctype="multipart/form-data" id="registrationForm">
             @csrf
             <div class="row">
                 <div class="mb-3 col-md-6">
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="namaKedua" class="form-label">Nama Member 2</label>
-                    <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror"  placeholder="" value="{{ old('namaKedua') }}" required>
+                    <input type="text" id="namaKedua" name="namaKedua" class="form-control @error('namaKedua') is-invalid @enderror" placeholder="" value="{{ old('namaKedua') }}" required>
                     @error('namaKedua')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -73,7 +73,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="namaKetiga" class="form-label">Nama Member 3</label>
-                    <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror"  placeholder="" value="{{ old('namaKetiga') }}" required>
+                    <input type="text" id="namaKetiga" name="namaKetiga" class="form-control @error('namaKetiga') is-invalid @enderror" placeholder="" value="{{ old('namaKetiga') }}" required>
                     @error('namaKetiga')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -118,4 +118,7 @@
     </div>
 </div>
 
+<script>
+   
+</script>
 @endsection
