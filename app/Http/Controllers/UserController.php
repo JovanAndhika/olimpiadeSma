@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     //
-    public function index(){
-        
+    public function index()
+    {
+
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
-    public function registration(){
+    public function registration()
+    {
 
         return view('registration', ['title' => 'BOM 2024 | REGISTRATION']);
     }
@@ -37,13 +39,12 @@ class UserController extends Controller
         ]);
 
         $validatedData['passPeserta'] = Hash::make($validatedData['passPeserta']);
-        if($request->file('buktiTransaksi')){
+        if ($request->file('buktiTransaksi')) {
             $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
         }
         User::create($validatedData);
-        
+
         // Kembalikan respons ke halaman yang sesuai
         return redirect("/")->with('registrationSuccess', 'Registration Berhasil!');
-
     }
 }
