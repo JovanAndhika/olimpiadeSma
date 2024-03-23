@@ -24,8 +24,8 @@
     </div>
 
     @include('homepageComponents.about')
-    @include('homepageComponents.timeline')
-    @include('homepageComponents.guide')
+    {{-- @include('homepageComponents.timeline') --}}
+    {{-- @include('homepageComponents.guide') --}}
     @include('homepageComponents.faq')
     @include('homepageComponents.footer')
 @endsection

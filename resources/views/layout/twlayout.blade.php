@@ -14,7 +14,9 @@
 
     <!-- ScrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-
+    
+    {{-- Flowbite --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/sidebar.css">
     @yield('head')
 </head>
@@ -31,6 +33,9 @@
 
     {{-- Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
+
+    {{-- Flowbite --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>
