@@ -18,30 +18,43 @@
         <title>LOGIN BOM</title>
 </head>
 <body>
-    <div class="box rounded-top border border-blue m-0">
+    <div class="box rounded-5 border border-blue center">
         <form action="">
-            <div class="row center">
-                <div class="col-8">
-                    <H2 class="">LOGIN</H2>
+
+                <div class="row center ">
+
+                <div class="d-flex col-lg-8">
+    
+                    <img src="assets/starrailASta.jpg" class="img-fluid " alt="">
                 </div>
-                <div class="col-8">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username">
-                    <i class="bi bi-person-circle"></i>
-                    <span></span>
+                <div class="col-8 col-lg-4">
+    
+                    <div class="center login">
+                    <h2 class="text-center text-white">LOGIN</h2>
                 </div>
-                <div class="col-8">
-                <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
-                    <span><i class="bi bi-eye-slash"></i></span>
+                <div class="input-box text-center" id="usernameBox">
+                        
+                    <input type="text" name="username" id="username" required placeholder="Username">        
+                    
+                </div>
+                <div class="input-box text-center" id="passwordBox">
+                    
+                            <input type="password" name="password" id="password" placeholder="P45sw0rd" required>
+                       
+                         
+                        
+                    
+                   
+                   
 
                 </div>
-                <div class="col-8">
-                    <button type="submit">Login</button>
+                <div class="col-12 text-center my-4 px-4 py-1">
+                    <button type="submit" class="button border rounded-pill">Login</button>
                 </div>
+                    </div>
+                
             </div>
-            <div>
-
+            
             </div>
         </form>
     </div>
