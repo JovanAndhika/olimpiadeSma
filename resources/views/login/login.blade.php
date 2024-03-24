@@ -34,11 +34,11 @@
                     <div class="center login">
                         <h2 class="text-center text-white">LOGIN</h2>
                     </div>
-                    @if(session()->has('accountError'))
-                    <div class="alert alert-dark" style="z-index: 99;">test</div>
+                    @if(session()->has('errorLogin'))
+                    <div class="alert alert-dark" style="z-index: 99;">The credentials is invalid</div>
                     @endif
-                    <div class="input-box text-center" id="usernameBox">
-                        <input type="text" name="username" id="username" required placeholder="Username">
+                    <div class="input-box text-center" id="nrp">
+                        <input type="text" name="nrp" id="nrp" required placeholder="Username">
                     </div>
                     <div class="input-box text-center" id="passwordBox">
                         <input type="password" name="password" id="password" placeholder="P45sw0rd" required>

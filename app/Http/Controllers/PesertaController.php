@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class PesertaController extends Controller
 {
     //INDEX
     public function index()
@@ -62,28 +63,28 @@ class UserController extends Controller
 
     public function authenticate(Request $request)
     {
-        $resultPanitia = User::Where('nrp', $request->username)
-            ->Where('password', $request->password)
-            ->Where('isAdmin', 1)
-            ->count();
-
-        if ($resultPanitia == 1) {
-            return redirect()->intended("/admin");
-        } else {
-            $resultPeserta = Peserta::Where('usernameKelompok', $request->username)
-                ->Where('passPeserta', $request->password)
-                ->count();
-            if ($resultPeserta == 1) {
-                return redirect()->intended("/eliminationone");
+        if (Auth::attempt(['nrp' => $request->username, 'password' => $request->password], true)) {
+            dd('success');
+            if (Auth::user()->isAdmin == 1) {
+                return redirect()->intended('/admin');
             }
 
-            return back()->with('accountError', 'The credentials didnt match the records.');
-        }
+        } else {
+            $usernameKelompok = DB::table('pesertas')->where('usernameKelompok', $request->username)->value('usernameKelompok');
+            $hashedPassword = User::where('nrp', $request->username)->value('password');
+            $passwordFromRequest = $request->password;
+
+            if ($usernameKelompok && Hash::check($passwordFromRequest, $hashedPassword)) {
+                return redirect()->intended('/eliminationone');
+            }
+        };
+
+        return redirect()->back()->with('errorLogin', 'credentials invalid');
     }
+
 
     public function eliminationone()
     {
-
         return view('Eliminasi1.mainpage', ['title' => 'BOM 2024 | ELIMINATION 1']);
     }
 }

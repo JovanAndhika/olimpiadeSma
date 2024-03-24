@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nrp');
             $table->string('name');
-            $table->string('password')->default('inibom24');
+            $table->string('password');
             $table->boolean('isAdmin')->default(1);
             $table->rememberToken();
             $table->timestamps();

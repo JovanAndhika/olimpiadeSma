@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Panitia::create([
+        User::create([
             'nrp' => 'C14220001',
             'name' => 'khususpanitiabom',
-            'passPeserta' => Hash::make('password'),
+            'password' => Hash::make('password'),
         ]);
     }
 }
