@@ -46,6 +46,22 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
+                    <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
+                    <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" value="{{ old('passConfirmPeserta') }}" required>
+                    @php
+                    if($_POST['passConfirmPeserta'] != $_POST['passPeserta']){
+                        echo "<div class="invalid-feedback">Password is not the same</div>"
+                    }
+                    @endphp
+                    <div id="passwordHelpBlock" class="form-text">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="mb-3 col-md-6">
                     <label for="namaKetua" class="form-label">Nama Ketua (Member 1)</label>
                     <input type="text" class="form-control @error('namaKetua') is-invalid @enderror" id="namaKetua" name="namaKetua" placeholder="" value="{{ old('namaKetua') }}" required>
                     @error('namaKetua')
@@ -119,6 +135,6 @@
 </div>
 
 <script>
-   
+
 </script>
 @endsection
