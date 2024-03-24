@@ -48,16 +48,26 @@
                 <div class="mb-3 col-md-6">
                     <label for="inputConfirmPassword5" class="form-label">Confirm Password</label>
                     <input type="password" id="inputConfirmPassword5" class="form-control" name="passConfirmPeserta" aria-describedby="passwordHelpBlock" value="{{ old('passConfirmPeserta') }}" required>
-                    @php
-                    if($_POST['passConfirmPeserta'] != $_POST['passPeserta']){
-                        echo "<div class="invalid-feedback">Password is not the same</div>"
-                    }
-                    @endphp
+                    <div id="confirmPasswordError" class="invalid-feedback" style="display: none;">Password is not the same</div>
                     <div id="passwordHelpBlock" class="form-text">
                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                     </div>
                 </div>
             </div>
+
+            <script>
+                document.getElementById("inputConfirmPassword5").addEventListener("keyup", function() {
+                    var password = document.getElementById("inputPassword5").value;
+                    var confirmPassword = document.getElementById("inputConfirmPassword5").value;
+                    var confirmPasswordError = document.getElementById("confirmPasswordError");
+
+                    if (password === confirmPassword) {
+                        confirmPasswordError.style.display = "none";
+                    } else {
+                        confirmPasswordError.style.display = "block";
+                    }
+                });
+            </script>
 
 
             <div class="row">
@@ -122,7 +132,7 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="buktiTransaksi" class="form-label">Bukti transaksi</label>
-                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi" multiple>
+                    <input class="form-control @error('buktiTransaksi') is-invalid @enderror" type="file" id="buktiTransaksi" name="buktiTransaksi">
                     @error('buktiTransaksi')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('panitias', function (Blueprint $table) {
+        Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
-            $table->string('nrp');
-            $table->string('name');
+            $table->string('asalSekolah');
+            $table->string('usernameKelompok');
             $table->string('passPeserta');
-            $table->boolean('isAdmin')->default(1);
+            $table->string('namaKetua');
+            $table->string('emailKetua');
+            $table->string('namaKedua');
+            $table->string('namaKetiga');
+            $table->string('jenisKonsumsi');
+            $table->string('alergi');
+            $table->string('buktiTransaksi');
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists('panitias');
+        Schema::dropIfExists('pesertas');
     }
 };

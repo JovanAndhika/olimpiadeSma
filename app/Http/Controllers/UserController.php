@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Panitia;
+use App\Models\Peserta;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +46,7 @@ class UserController extends Controller
         if ($request->file('buktiTransaksi')) {
             $validatedData['buktiTransaksi'] = $request->file('buktiTransaksi')->store('public/folder-transaksi');
         }
-        User::create($validatedData);
+        Peserta::create($validatedData);
 
         // Kembalikan respons ke halaman yang sesuai
         return redirect("/")->with('registrationSuccess', 'Registration Berhasil!');
@@ -60,33 +60,25 @@ class UserController extends Controller
         return view('login.login', ['title' => 'BOM 2024 | LOGIN']);
     }
 
-    public function loginConfirmation(Request $request)
+    public function authenticate(Request $request)
     {
-        $resultPanitia = Panitia::Where('nrp', $request->username)
+        $resultPanitia = User::Where('nrp', $request->username)
+            ->Where('password', $request->password)
             ->Where('isAdmin', 1)
-            ->first()
             ->count();
 
-        // $credentials = $request->validate([
-        //     'usernameKelompok' => 'required',
-        //     'passPeserta' => 'required',
-        // ]);
-
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-
         if ($resultPanitia == 1) {
-            return redirect()->intended("{{ route('admin.index') }}");
+            return redirect()->intended("/admin");
         } else {
-            $resultPeserta = User::Where('usernameKelompok', $request->username)->first()->count();
+            $resultPeserta = Peserta::Where('usernameKelompok', $request->username)
+                ->Where('passPeserta', $request->password)
+                ->count();
             if ($resultPeserta == 1) {
-                return redirect()->intended("{{route('eliminationone'}}");
+                return redirect()->intended("/eliminationone");
             }
-        }
 
-        return back()->with([
-            'accountError', 'Username or Password is not correct.'
-        ]);
+            return back()->with('accountError', 'The credentials didnt match the records.');
+        }
     }
 
     public function eliminationone()

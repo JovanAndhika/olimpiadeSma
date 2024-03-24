@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     //INDEX
-    public function index(){
+    public function adminIndex(){
         
-        return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
+        return view('admin.adminHomepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 }
 

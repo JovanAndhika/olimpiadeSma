@@ -21,7 +21,7 @@
 
 <body>
     <div class="box rounded-5 border border-blue center">
-        <form action="{{ route('loginConfirmation') }}" method="post">
+        <form action="{{ route('authenticate') }}" method="post">
             @csrf
             <div class="row center ">
 
@@ -35,7 +35,7 @@
                         <h2 class="text-center text-white">LOGIN</h2>
                     </div>
                     @if(session()->has('accountError'))
-                    <div class="col-8 invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-dark" style="z-index: 99;">test</div>
                     @endif
                     <div class="input-box text-center" id="usernameBox">
                         <input type="text" name="username" id="username" required placeholder="Username">

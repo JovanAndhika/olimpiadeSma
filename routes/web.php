@@ -13,11 +13,15 @@ Route::post('/registration/store', [UserController::class, 'storeRegistration'])
 
 //LOGIN
 Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login/confirmation', [UserController::class, 'loginConfirmation'])->name('loginConfirmation');
+Route::post('/login/confirmation', [UserController::class, 'authenticate'])->name('authenticate');
 
 
 //ADMIN
-Route::get('/admin/adminIndex', [AdminController::class, 'index'])->name('admin.index');
+Route::prefix('admin')->middleware('is_admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'adminIndex'])->name('admin.index');
+});
+// Route::get('/admin', [AdminController::class, 'adminIndex'])->name('admin.index');
+
 
 
 //ELIMINASI 1

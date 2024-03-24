@@ -13,17 +13,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('asalSekolah');
-            $table->string('usernameKelompok');
-            $table->string('passPeserta');
-            $table->string('namaKetua');
-            $table->string('emailKetua');
-            $table->string('namaKedua');
-            $table->string('namaKetiga');
-            $table->string('jenisKonsumsi');
-            $table->string('alergi');
-            $table->string('buktiTransaksi');
-            $table->boolean('verified_by_admin')->default(0);
+            $table->string('nrp');
+            $table->string('name');
+            $table->string('password')->default('inibom24');
+            $table->boolean('isAdmin')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
