@@ -13,16 +13,9 @@ Route::post('/registration/store', [PesertaController::class, 'storeRegistration
 
 //LOGIN
 Route::get('/login', [PesertaController::class, 'login'])->name('login');
-Route::post('/login/confirmation', [PesertaController::class, 'authenticate'])->name('authenticate');
+Route::post('/login', [PesertaController::class, 'authenticate'])->name('authenticate');
 
-
-//ADMIN
-Route::group(['middleware' => 'admin'], function(){
-    Route::get('/admin', [AdminController::class, 'adminIndex'])->name('admin.index');
-});
-
-
-
+Route::get('/f36dbb75466650c2294914b6e2fa3058', [AdminController::class, 'adminIndex'])->name('adminIndex');
 
 //ELIMINASI 1
 //PESERTA

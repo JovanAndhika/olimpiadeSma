@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'nrp' => 'C14220001',
-            'name' => 'khususpanitiabom',
+            'username' => 'khususpanitiabom',
             'password' => Hash::make('password'),
         ]);
     }
