@@ -1,0 +1,16 @@
+body{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: blueviolet;
+}
+.box{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
