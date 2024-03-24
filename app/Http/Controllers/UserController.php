@@ -11,15 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //INDEX
+    //
     public function index()
     {
 
         return view('homepage', ['title' => 'BOM 2024 | PETRA CHRISTIAN UNIVERSITY']);
     }
 
-
-    // REGISTRATION HANDLER
     public function registration()
     {
 

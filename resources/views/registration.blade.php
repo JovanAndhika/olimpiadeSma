@@ -1,5 +1,19 @@
 @extends('layout.mainlayout')
 
+
+@section('head')
+    <style>
+        body{
+            color: white;
+            min-height: 100vh;
+        }
+
+        .form-text{
+            color: white
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="container container-registration">
 
