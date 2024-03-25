@@ -67,19 +67,31 @@ class PesertaController extends Controller
         $passPanitia = DB::table('users')->select('password')->where('nrp', $request->nrp)->value('password');
         $inputPass = $request->password;
 
-        
-        if($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)){
+
+        if ($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)) {
 
             $credentials = $request->validate([
                 'nrp' => 'required',
                 'password' => 'required'
             ]);
-            
-            if(Auth::attempt($credentials)){
+
+            if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 return redirect()->intended('/f36dbb75466650c2294914b6e2fa3058');
             }
             return back()->with('loginError', 'Login credentials invalid!');
+
+
+            // LOGIN PESERTA
+        } else if ($nrpPanitia == 0) {
+            $cekUsernameKelompok = Peserta::Where('usernameKelompok', $request->nrp)->count();
+            $passPeserta = DB::table('pesertas')->select('passPeserta')->where('usernameKelompok', $request->nrp)->value('password');
+            $inputPass = $request->password;
+
+            if ($cekUsernameKelompok == 1 && Hash::check($inputPass, $passPeserta)) {
+                $usernameKelompok = DB::table('pesertas')->select('usernameKelompok')->where('usernameKelompok', $request->nrp)->value('usernameKelompok');
+                return redirect()->route('eliminationone')->with('usernameKelompok', $usernameKelompok);
+            }
         }
     }
 
