@@ -63,14 +63,23 @@ class PesertaController extends Controller
 
     public function authenticate(Request $request)
     {
-        $nrpPanitia = User::Where('nrp', $request->username)->count();
-        $passPanitia = DB::table('users')->select('password')->where('nrp', $request->username)->value('password');
+        $nrpPanitia = User::Where('nrp', $request->nrp)->count();
+        $passPanitia = DB::table('users')->select('password')->where('nrp', $request->nrp)->value('password');
         $inputPass = $request->password;
 
-        $result = Hash::check($inputPass, $passPanitia);
+        
+        if($nrpPanitia == 1 && Hash::check($inputPass, $passPanitia)){
 
-        if($nrpPanitia == 1 && $result == true){
-            return redirect()->route('adminIndex');
+            $credentials = $request->validate([
+                'nrp' => 'required',
+                'password' => 'required'
+            ]);
+            
+            if(Auth::attempt($credentials)){
+                $request->session()->regenerate();
+                return redirect()->intended('/f36dbb75466650c2294914b6e2fa3058');
+            }
+            return back()->with('loginError', 'Login credentials invalid!');
         }
     }
 
